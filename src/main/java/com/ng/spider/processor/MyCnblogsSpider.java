@@ -16,7 +16,7 @@ public class MyCnblogsSpider implements PageProcessor {
     }
 
     public void process(Page page) {
-        if (!page.getUrl().regex("https://www.zhihu.com/question/[a-z 0-9 -]+/p/[0-9]{7}/answer/[a-z 0-9 -]+/p/[0-9]{7}.html").match()) {
+        if (!page.getUrl().regex("http://www.cnblogs.com/[a-z 0-9 -]+/p/[0-9]{7}.html").match()) {
             page.addTargetRequests(
                     page.getHtml().xpath("//*[@id=\"mainContent\"]/div/div/div[@class=\"postTitle\"]/a/@href").all());
         } else {
