@@ -1,0 +1,47 @@
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /spider
+#
+#spring:
+#  application:
+#    name: spider
+
+#  cloud:
+#    consul:
+#      host: consul-agent
+#      port: 8500
+#
+#      discovery:
+#        tags: management.context-path=${server.servlet.context-path}/actuator
+#        health-check-path: ${server.servlet.context-path}/actuator/health   # 健康健康路径，也可以自己写
+#        health-check-interval: 10s            # 检测轮训时间 1m 代码1分钟
+#        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+#        hostname: qadm-platform
+##        hostname: 192.168.1.247
+#        health-check-critical-timeout: 60s    # 超过60s检测不到则从服务器删除
+#        enabled: true
+#        heartbeat:
+#                  enabled: true
+#        prefer-ip-address: true
+#
+#      config:
+#        enabled: true
+#        prefix: config
+#        data-key: application
+#        format: yaml
+#        defaultContext: ${spring.application.name}
+#        name: qadm-platform
+
+
+
+#management:
+#    endpoints:
+#      web:
+#        exposure:
+#          include: "*"
+#      enabled-by-default: true
+#
+#    endpoint:
+#      health:
+#        show-details: ALWAYS
